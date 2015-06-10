@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>placeholder in kendo-combo-box not shown in IE8</title>
+
+  <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.common.min.css">
+  <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.rtl.min.css">
+  <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.default.min.css">
+  <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.dataviz.min.css">
+  <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.dataviz.default.min.css">
+  <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.mobile.all.min.css">
+
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script src="http://cdn.kendostatic.com/2015.1.429/js/angular.min.js"></script>
+  <script src="http://cdn.kendostatic.com/2015.1.429/js/jszip.min.js"></script>
+  <script src="http://cdn.kendostatic.com/2015.1.429/js/kendo.all.min.js"></script>
+    
+ 
+  </head>
+  
+<body ng-app="KendoDemos" ng-controller="MyCtrl">
+                            
+        <select kendo-combo-box
+                k-placeholder="'select an item...'"
+                k-data-text-field="'text'"
+                k-data-value-field="'value'"
+                k-filter="'contains'"
+                k-auto-bind="false"
+                k-min-length="3"
+                k-data-source="myDataSource"
+                k-ng-model="myComboModel"
+                style="width: 300px;" >
+        </select>
+   
+  <script>
+    angular.module("KendoDemos", [ "kendo.directives" ])
+    .controller("MyCtrl", function($scope){
+
+	// workaround (kind of)
+	window.setTimeout(function () {                    
+                    $scope.myCombobox.focus();                    
+                    window.setTimeout(function () {
+                        window.focus();
+                    }, 0);
+                }, 10);
+	
+      $scope.myComboModel = null;
+     $scope.myDataSource = [
+        { text: "Item1", value: "1" },
+        { text: "Item2", value: "2" }
+      ]
+
+    })
+  </script>
+  
+</body>
+</html>
