@@ -16,34 +16,7 @@
   <!--<script src="http://cdn.kendostatic.com/2015.1.429/js/jszip.min.js"></script>-->
   <script src="http://cdn.kendostatic.com/2015.1.429/js/kendo.all.min.js"></script>
     
-    <script type="text/javascript">
-
-        console.log('Going to create a module...');
-
-        var app = angular.module("KendoDemos", ["kendo.directives"]);
-
-        console.log('Going to create add a controller...');
-
-        app.controller("MyCtrl", function ($scope) {
-
-                // workaround (kind of)
-                //window.setTimeout(function () {                    
-                //                $scope.myCombobox.focus();                    
-                //                window.setTimeout(function () {
-                //                    window.focus();
-                //                }, 0);
-                //            }, 10);
-
-                $scope.myComboModel = null;
-                $scope.myDataSource = [
-                  { text: "Item1", value: "1" },
-                  { text: "Item2", value: "2" }
-                ];
-
-        });
-
-        console.log('All done.');
-    </script>
+    
 
 
 </head>
@@ -51,6 +24,7 @@
 <body>                     
                    
     <div ng-app="KendoDemos" ng-controller="MyCtrl">
+
         <select kendo-combo-box="myCombobox"
             k-placeholder="'select an item...'"
             k-data-text-field="'text'"
@@ -62,6 +36,38 @@
             k-ng-model="myComboModel"
             style="width: 300px;">
         </select>
+
     </div>
+
+
+    <script type="text/javascript">
+
+        console.log('Going to create a module...');
+
+        var app = angular.module("KendoDemos", ["kendo.directives"]);
+
+        console.log('Going to create add a controller...');
+
+        app.controller("MyCtrl", function ($scope) {
+
+            // workaround (kind of)
+            //window.setTimeout(function () {                    
+            //                $scope.myCombobox.focus();                    
+            //                window.setTimeout(function () {
+            //                    window.focus();
+            //                }, 0);
+            //            }, 10);
+
+            $scope.myComboModel = null;
+            $scope.myDataSource = [
+              { text: "Item1", value: "1" },
+              { text: "Item2", value: "2" }
+            ];
+
+        });
+
+        console.log('All done.');
+    </script>
+
 </body>
 </html>
