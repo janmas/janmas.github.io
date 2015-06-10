@@ -17,7 +17,27 @@
   <script src="http://cdn.kendostatic.com/2015.1.429/js/jszip.min.js"></script>
   <script src="http://cdn.kendostatic.com/2015.1.429/js/kendo.all.min.js"></script>
     
- 
+<script>
+    angular.module("KendoDemos", [ "kendo.directives" ]).controller("MyCtrl", function($scope) {
+
+	// workaround (kind of)
+	window.setTimeout(function () {                    
+                    $scope.myCombobox.focus();                    
+                    window.setTimeout(function () {
+                        window.focus();
+                    }, 0);
+                }, 10);
+	
+	      $scope.myComboModel = null;
+	     $scope.myDataSource = [
+        { text: "Item1", value: "1" },
+        { text: "Item2", value: "2" }
+      ]
+
+    })
+  </script> 
+
+
   </head>
   
 <body ng-app="KendoDemos" ng-controller="MyCtrl">
@@ -32,28 +52,7 @@
                 k-data-source="myDataSource"
                 k-ng-model="myComboModel"
                 style="width: 300px;" >
-        </select>
-   
-  <script>
-    angular.module("KendoDemos", [ "kendo.directives" ])
-    .controller("MyCtrl", function($scope){
-
-	// workaround (kind of)
-	window.setTimeout(function () {                    
-                    $scope.myCombobox.focus();                    
-                    window.setTimeout(function () {
-                        window.focus();
-                    }, 0);
-                }, 10);
-	
-      $scope.myComboModel = null;
-     $scope.myDataSource = [
-        { text: "Item1", value: "1" },
-        { text: "Item2", value: "2" }
-      ]
-
-    })
-  </script>
+        </select>     
   
 </body>
 </html>
