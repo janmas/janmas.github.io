@@ -52,7 +52,7 @@
             // workaround (well, kind of:-)
             window.setTimeout(function () {                    
                             // $scope.myCombobox.focus();                    
-							var el = document.getElementById("fooCombo")
+							var el = angular.element($('#fooCombo'))
 							el.focus();
                             window.setTimeout(function () {
                                 window.focus();
