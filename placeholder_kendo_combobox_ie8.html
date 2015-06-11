@@ -50,14 +50,13 @@
         app.controller("MyCtrl", function ($scope) {
 
             // workaround (well, kind of:-)
-            window.setTimeout(function () {                    
-                            // $scope.myCombobox.focus();                    
-							var el = angular.element($('#fooCombo'))
-							el.focus();
-                            window.setTimeout(function () {
-                                window.focus();
-                            }, 0);
-                        }, 10);
+            // window.setTimeout(function () {                                                
+			// 				var el = angular.element($('#fooCombo'))
+			// 				el.focus();
+            //                 window.setTimeout(function () {
+            //                     window.focus();
+            //                 }, 0);
+            //             }, 10);
 
             $scope.myComboModel = null;
             $scope.myDataSource = [
