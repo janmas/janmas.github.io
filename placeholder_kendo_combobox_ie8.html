@@ -36,7 +36,8 @@
             k-min-length="3"
             k-data-source="myDataSource"
             k-ng-model="myComboModel"
-            style="width: 300px;">
+            style="width: 300px;"
+			id="fooCombo">
         </select>
 
     </p>
@@ -50,7 +51,9 @@
 
             // workaround (well, kind of:-)
             window.setTimeout(function () {                    
-                            $scope.myCombobox.focus();                    
+                            // $scope.myCombobox.focus();                    
+							var el = document.getElementById("fooCombo")
+							el.focus();
                             window.setTimeout(function () {
                                 window.focus();
                             }, 0);
