@@ -41,8 +41,7 @@
 			id="fooCombo">
         </select>
 		
-		&nbsp;<span>Selected item:</span>
-		<span id="selectedItem" />
+		&nbsp;<span>Selected item:</span><span id="selectedItem" />
 
     </p>
 
@@ -69,7 +68,7 @@
             ];
 			
 			$scope.itemSelected = function () {
-                angular.element($('#selectedItem')).text($scope.myComboModel.text);             
+                angular.element($('#selectedItem')).html($scope.myComboModel.text);             
             }
 
         });
