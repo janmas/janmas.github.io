@@ -63,10 +63,17 @@
             //             }, 10);
 
             $scope.myComboModel = null;
-            $scope.myDataSource = [
-              { text: "Item1", value: "1" },
-              { text: "Item2", value: "2" }
-            ];
+            var items = [
+                    { text: "Item1", value: "1" },
+                    { text: "Item2", value: "2" }
+                ];                
+                $scope.myDataSource = new kendo.data.DataSource({
+                    data: items
+                });
+                $window.setTimeout(function () {
+                    console.log('going to read from kendo data source...');
+                    $scope.myDataSource.read();                    
+                }, 0);
 			
 			$scope.itemSelected = function () {
                 angular.element($('#selectedItem')).html($scope.myComboModel.text);             
