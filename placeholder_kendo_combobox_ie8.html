@@ -71,7 +71,9 @@
                     data: items
                 });
                 $window.setTimeout(function () {
-                    console.log('going to read from kendo data source...');
+					if (typeof console != "undefined") {
+						console.log('going to read from kendo data source...');
+					}
                     $scope.myDataSource.read();                    
                 }, 0);
 			
